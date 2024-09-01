@@ -2,7 +2,7 @@
 import { Button, Col, Form, Row } from "react-bootstrap";
 import MainScreen from "../../components/MainScreen/MainScreen";
 import { Link, useNavigate } from "react-router-dom";
-import "./loginScreen.css";
+import "./LoginScreen.css";
 import { useState } from "react";
 // import axios from "axios";
 import Loading from "../../components/Loading/Loading";
