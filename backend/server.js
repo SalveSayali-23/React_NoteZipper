@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const notes = require("./data/notes");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
@@ -11,6 +12,14 @@ dotenv.config();
 // console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
 connectDB();
+// Configure CORS
+app.use(
+  cors({
+    origin: "https://react-notezipper-frontend.onrender.com", // Update this with your frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"], // Add the methods your API supports
+    // credentials: true, // If you use cookies for authentication
+  })
+);
 app.use(express.json());
 app.get("/", (req, res) => {
   res.send("API is running..");
