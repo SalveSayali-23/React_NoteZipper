@@ -1,7 +1,7 @@
 // src/slices/userSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+const API_URL = 'https://react-notezipper-backend.onrender.com';
 // Thunk for handling login
 export const login = createAsyncThunk(
   "user/login",
@@ -14,7 +14,7 @@ export const login = createAsyncThunk(
       };
 
       const { data } = await axios.post(
-        "/api/users/login",
+        `${API_URL}/api/users/login`,
         { email, password },
         config
       );

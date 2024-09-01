@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+const API_URL = "https://react-notezipper-backend.onrender.com";
 // Thunk for handling user registration
 export const register = createAsyncThunk(
   "user/register",
@@ -14,7 +14,7 @@ export const register = createAsyncThunk(
 
       // Making the API call for registration
       const { data } = await axios.post(
-        "/api/users",
+        `${API_URL}/api/users`,
         { name, email, password, pic },
         config
       );

@@ -10,7 +10,7 @@ import axios from "axios";
 import { updateNote } from "../../slices/notesSlice";
 import Loading from "../../components/Loading/Loading";
 import ErrorMessage from "../../components/ErrorComponent/ErrorMessage";
-
+const API_URL = "https://react-notezipper-backend.onrender.com";
 const UpdateNote = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -26,7 +26,7 @@ const UpdateNote = () => {
   useEffect(() => {
     const fetchNote = async () => {
       try {
-        const { data } = await axios.get(`/api/notes/${id}`);
+        const { data } = await axios.get(`${API_URL}/api/notes/${id}`);
         setTitle(data.title);
         setContent(data.content);
         setCategory(data.category);

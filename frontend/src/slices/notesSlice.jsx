@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 // fetch all notes
+const API_URL = "https://react-notezipper-backend.onrender.com";
+
 export const listNotes = createAsyncThunk(
   // Step 1: Create the thunk for fetching notes
 
@@ -17,7 +19,7 @@ export const listNotes = createAsyncThunk(
         },
       };
 
-      const { data } = await axios.get("/api/notes", config); // API call to fetch notes
+      const { data } = await axios.get(`${API_URL}/api/notes`, config); // API call to fetch notes
       return data; // Data is returned and passed to the fulfilled state
     } catch (error) {
       return rejectWithValue(
@@ -46,7 +48,7 @@ export const updateNote = createAsyncThunk(
       };
 
       const { data } = await axios.put(
-        `/api/notes/${id}`,
+        `${API_URL}/api/notes/${id}`,
         { title, content, category },
         config
       );
@@ -76,7 +78,7 @@ export const deleteNote = createAsyncThunk(
         },
       };
 
-      const { data } = await axios.delete(`/api/notes/${id}`, config);
+      const { data } = await axios.delete(`${API_URL}/api/notes/${id}`, config);
       return data;
     } catch (error) {
       return rejectWithValue(

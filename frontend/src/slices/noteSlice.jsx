@@ -6,6 +6,7 @@ const initialState = {
   loading: false,
   error: null,
 };
+const API_URL = "https://react-notezipper-backend.onrender.com";
 
 export const createNote = createAsyncThunk(
   "notes/createNote",
@@ -23,7 +24,7 @@ export const createNote = createAsyncThunk(
 
       // API call to create the note
       const { data } = await axios.post(
-        "api/notes/create",
+        `${API_URL}/api/notes/create`,
         { title, content, category },
         config
       );
